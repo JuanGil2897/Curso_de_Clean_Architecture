@@ -5,10 +5,7 @@ import dev.fennex.clean.domain.model.AuthenticationToken;
 import dev.fennex.clean.presentation.controllers.error.RequestError;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/login")
@@ -40,6 +37,10 @@ public class LoginController {
     static class LoginRequest {
         public String username;
         public String password;
+    }
+    @GetMapping(path = "getStringTest", produces = { "application/json", "application/xml" })
+    public String index() {
+        return String.format("%1$s-%2$s", "Version App","1");
     }
 }
 

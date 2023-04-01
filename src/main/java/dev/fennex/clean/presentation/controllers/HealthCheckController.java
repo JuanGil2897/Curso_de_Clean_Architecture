@@ -1,9 +1,6 @@
 package dev.fennex.clean.presentation.controllers;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class HealthCheckController {
@@ -15,6 +12,11 @@ public class HealthCheckController {
 
     static class HealthCheckResponse {
         public Boolean success = true;
+    }
+
+    @GetMapping(path = "getStringTest", produces = { "application/json", "application/xml" })
+    public String index2() {
+        return String.format("%1$s-%2$s", "Version App","1");
     }
 }
 
